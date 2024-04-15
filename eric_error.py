@@ -3,7 +3,7 @@ import sys
 
 
 #-- Functions
-def calculadora_suma(num1):
+def calculadora_suma(num1, num2):
     return num1 + num2
 
 def main():
