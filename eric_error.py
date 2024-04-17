@@ -4,7 +4,7 @@ import os
 
 
 #-- Functions
-def calculadora_suma(num1, num2):
+def calculadora_suma(num1):
     return num1 + num2
 
 def main():
