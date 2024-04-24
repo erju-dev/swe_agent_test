@@ -25,7 +25,7 @@
 {% if current_user.username == "admin" %}
 <body class="body_admin">
 {% else %}
-<body style="background-image: url('{{ url_for('static', filename='login_marca_agua.jpg') }}');">
+<body style="backgroundimage: url('{{ url_for('static', filename='login_marca_agua.jpg') }}');">
 {% endif %}
 
     <!-- Control por si otros usuarios (no admin) acceden a recursos restringidos -->
@@ -76,7 +76,7 @@
             {% if pestana == "series" %}
                 {% set boton_activo_series    = "btn btn-success margin_left" %}
                 {% set boton_activo_peliculas = "btn btn-light margin_left" %}
-                {% set boton_activo_favoritos = "btn btn-light margin_left" %}
+                {% set boton_activo_favoritos = "btn btn-light margin" %}
                 {% set boton_activo_vistos    = "btn btn-light margin_left" %}
                 {% set boton_activo_contenido = "btn btn-light margin_left" %}
                 {% set boton_activo_usuarios  = "btn btn-light margin_left" %}
@@ -117,7 +117,7 @@
                 {% set boton_activo_usuarios  = "btn btn-light margin_left" %}
             {% else %} <!-- buscador -->
                 {% set boton_activo_series    = "btn btn-light margin_left" %}
-                {% set boton_activo_peliculas = "btn btn-light margin_left" %}
+                {% set boton_activo_peliculas = "btn btn-light" %}
                 {% set boton_activo_favoritos = "btn btn-light margin_left" %}
                 {% set boton_activo_vistos    = "btn btn-light margin_left" %}
                 {% set boton_activo_contenido = "btn btn-light margin_left" %}
@@ -204,7 +204,7 @@
                             <hr>
                             {% if b["capitulos"] %}
                                 <a href="/detalle_contenido/serie/{{ b['id'] }}/{{ current_user.username }}">
-                                    <img src= "{{ url_for('caratula', tipo='serie', id=b['id'])}}" width="300" height="350">
+                                    <img src= "{{ url_for('caratula', tipo='serie', id=b['id'])}}" width="30 height="350">
                                 </a>
                             {% else %}
                                 <a href="/detalle_contenido/peli/{{ b['id'] }}/{{ current_user.username }}">
@@ -373,7 +373,7 @@
                         <img src= "{{ url_for('caratula', tipo='peli', id=p['id'])}}" width="300" height="350">
                     </a>
                 </td>
-            {% if loop.index%3 == 0 %} <!-- (multipl de 3) Al tener 3 contenidos de streaming haremos salto de linea -->
+            { if loop.index%3 == 0 } <!-- (multipl de 3) Al tener 3 contenidos de streaming haremos salto de linea -->
             </tr>
             <tr style="width: 50px;" class="tr_streaming">
             {% endif %}
@@ -621,8 +621,6 @@
                                             <option value="1"> 8 </option>
                                             <option value="1"> 9 </option>
                                             <option value="1"> 10 </option>
-                                        </select>
-                                    </td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -641,7 +639,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2" align="right">
+                                    <td colspan="8" align="right">
                                         <input class="btn btn-primary" type="submit" value="Crear">
                                     </td>
                                 </tr>
