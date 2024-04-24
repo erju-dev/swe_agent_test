@@ -3,8 +3,7 @@ import sys
 import os
 
 #-- Functions
-def main2():
-    cara = int(input("Introduce cara para calcular area: "))
+def main2(cara):
     area = cara * cara  # Corrected area calculation for a square
     print("El area es:", area)
 
@@ -18,5 +17,9 @@ def main3():
 #-- Main --#
 if __name__ == "__main__":
     os.system("cls" if os.name == "nt" else "clear")
-    main2()
+    if len(sys.argv) != 2:
+        print("Usage: python logical_error.py <side_length>")
+        sys.exit(1)
+    main2(int(sys.argv[1]))
     main3()
+    print("Script completed successfully, no errors.")
