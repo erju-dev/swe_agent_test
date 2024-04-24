@@ -1,0 +1,107 @@
+<!DOCTYPE html> <!-- Linea especificando que es un file html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">  <!-- Codificacion, default segun PC -->
+    <title> Gestor de Tareas </title>
+
+    <!-- Hoja de estilo local (main.css) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+    <!-- Plantilla de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/litera/bootstrap.min.css" integrity="sha384-enpDwFISL6M3ZGZ50Tjo8m65q06uLVnyvkFO3rsoW0UC15ATBFz3QEhr3hmxpYsn" crossorigin="anonymous">
+
+    <!-- Bootstrap all
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="container p-4">
+        <h4 class="text-center mt-4 titulo"> Gestor de tareas </h4></br>
+
+        {% if editar_menu == True %}
+        <form action="/tarea-editada/{{ tarea_id }}/False" method="post">
+            <input type="text" id="nueva_tarea" name="nueva_tarea" size="100" value="{{ tarea_actual }}" autofocus> <!-- placeholder="{{ tarea_actual }}" -->
+            <input type="date" id="nueva_fecha_limite" name="nueva_fecha_limite" value="{{ fecha_tarea }}"></br>
+            <button type="submit" id="button-update-tarea"> <!-- Boton envio update tarea -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#3cb371" class="bi bi-floppy" viewBox="0 0 16 16">
+                    <path d="M11 2H9v3h2z"/>
+                    <path d="M1.5 0h11.586a1.5 1.5 0 0 1 1.06.44l1.415 1.414A1.5 1.5 0 0 1 16 2.914V14.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 14.5v-13A1.5 1.5 0 0 1 1.5 0M1 1.5v13a.5.5 0 0 0 .5.5H2v-4.5A1.5 1.5 0 0 1 3.5 9h9a1.5 1.5 0 0 1 1.5 1.5V15h.5a.5.5 0 0 0 .5-.5V2.914a.5.5 0 0 0-.146-.353l-1.415-1.415A.5.5 0 0 0 13.086 1H13v4.5A1.5 1.5 0 0 1 11.5 7h-7A1.5 1.5 0 0 1 3 5.5V1H1.5a.5.5 0 0 0-.5.5m3 4a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5V1H4zM3 15h10v-4.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5z"/>
+                </svg>
+            </button>
+            <a href="/"> <!-- Boton cancelar update tarea -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#ff6347" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+                </svg>
+            </a>
+        </form>
+        </br>
+        {% endif %}
+
+        {% if not editar_menu %}
+        </br></br></br></br>
+        {% endif %}
+
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <div class="card">
+                  <div class="card-header">
+                      <!-- formulario que envia datos al endpoint "/crear-tarea" -->
+                      <form action="/crear-tarea" method="post" align="center">
+                          <div class="form-group">
+                              <!-- Con el "name" creamos una variable para almacenar la info y enviarla por POST -->
+                              <input type="text" id="contenido_tarea" name="contenido_tarea" placeholder="Tarea" class="form-group" autofocus></br>
+                              <label for="fecha_limite"> Fecha limite </label></br>
+                              <input type="date" id="fecha_limite" name="fecha_limite" class="form-group">
+                          </div>
+                          <!-- Boton con submit para enviar info a la url del action form -->
+                          <button type="submit" class="btn btn-primary btn-block"> Guardar </button>
+                      </form>
+                      <font size="2"><i>* Introduce una tarea y una fecha para que el env&iacute;o sea v&aacute;lido</i></font>
+                  </div>
+                  <div class="card-body">
+                      <ul class="list-group">
+                          {% for tarea in lista_de_tareas %} <!-- Para hacer bucles: {"%" xxx "%"} -->
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                                  <table width="100" class="fixed">
+                                      <tr>
+                                          <td>
+                                              <span class="{% if tarea.hecha == true %} tarea_hecha {% endif %}">
+                                                  {{ tarea.contenido }} <!-- Para mostrar variables: "{{ xxx }}" -->
+                                              </span>
+                                          </td>
+                                      </tr>
+                                  </table>
+                                  <span class="{% if tarea.fecha_limite < fecha_actual %} fecha_limite_ko {% endif %}{% if tarea.hecha == true %} tarea_hecha {% endif %}">
+                                      {{ tarea.fecha_limite }} <!-- Para mostrar variables: "{{ xxx }}" -->
+                                  </span>
+                                  <a href="/tarea-hecha/{{tarea.id}}" style="text-decoration:none">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#3cb371" class="bi bi-check2-square" viewBox="0 0 16 16">
+                                          <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5H3z"/>
+                                          <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
+                                      </svg>
+                                  </a>
+                                  <a href="/tarea-borrada/{{tarea.id}}" style="text-decoration:none">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff0000" class="bi bi-trash3" viewBox="0 0 16 16">
+                                          <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                                      </svg>
+                                  </a>
+                                  <a href="/tarea-editada/{{tarea.id}}/desplegar_menu" style="text-decoration:none">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffa500" class="bi bi-pencil" viewBox="0 0 16 16">
+                                          <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                      </svg>
+                                  </a>
+                          </li>
+                          {% endfor %}          <!-- Bucles: endfor, Condicionales: endif -->
+                      </ul>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+
