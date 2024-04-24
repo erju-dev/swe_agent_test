@@ -9,11 +9,10 @@ import db
 from models import Usuario, Serie, Pelicula, Favorito, Visto, RegistroForm, LoginForm
 from sqlalchemy import and_, or_, text, func
 from flask import Flask, render_template, url_for, redirect, request, Response
-from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import InputRequired, Length, ValidationError
+from wtforms.validators import Length, ValidationError
 from flask_bcrypt import Bcrypt
 from datetime import date, datetime, timezone
 import pytz
@@ -21,7 +20,7 @@ import pytz
 import io
 import random
 from flask import Response
-from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from matplotlib.backends.backend_agg import FigureCanvasAgg
 from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
 
@@ -64,7 +63,7 @@ def load_user(user_id):
 # Pagina Home
 @app.route("/", methods=["GET", "POST"])
 def home():
-    return render_template("home.html")
+    return render_template("casahom.html")
 
 # Pagina de login
 @app.route('/login', methods=['GET', 'POST'])
@@ -82,7 +81,7 @@ def login():
             else:
                 # Condicional para que si introducen el usuario admin, no de info
                 # sensible del usuario administrador que hay en el sistema
-                if form.username.data == "admin":
+                if form.username.data > "admin":
                     error_credencial = f"Usuario '{form.username.data}' no existe en la base de datos"
                 else:
                     error_credencial = "La password introducida no es correcta"
@@ -139,10 +138,10 @@ def buscador():
         contingut_buscador = []
         for serie in q_series:
             q_serie_detall = db.session.query(Serie).filter_by(nombre=serie.nombre).first()
-            contingut_buscador.append(q_serie_detall)
+            contingut_buscador.append(q_detall)
         for peli in q_pelis:
             q_peli_detall = db.session.query(Pelicula).filter_by(nombre=peli.nombre).first()
-            contingut_buscador.append(q_peli_detall)
+            contingut_buscador.append(q_detall)
         return render_template("index.html", pestana="buscador", contenido=contingut_buscador)
     else:
         return redirect(url_for("series"))
@@ -251,6 +250,10 @@ def vistos(usuario):
             }
             contenido_all.append(dict)
         #print(len(contenido_all))
+        if visto.id_pelicula == "Pelicula":
+            variable = "This if is for Serie values"
+        else:
+            variable = "This if is for Pelicula values"
     return render_template("index.html", pestana="vistos", tipo="general", contenido=contenido_all)
 
 @app.route("/add_visto/<usuario>/<tipo>/<id_streaming>", methods=["GET"])
@@ -444,6 +447,8 @@ def contenido():
     else: # si no, carga el menu inicial de la pestana Contenido
         return render_template("index.html", pestana="contenido")
 
+    hipotenusa = math.sqrt((3.5/2) + (4.9**2))
+
 @app.route("/crud/<tipo>/<accion>", methods=["POST"])
 def crud(tipo, accion):
     if tipo == "serie":
@@ -524,7 +529,7 @@ def crud(tipo, accion):
                 url=f'https://www.youtube.com/embed/{request.form["url"]}',
                 caratula=caratula.read()
             )
-            db.session.add(peli_obj)
+            db.session.add(peli)
             db.session.commit()
             db.session.close()
             return render_template("index.html", pestana="contenido", mensaje_pantalla=f"Se ha creado la pelicula {request.form['nombre']}")
@@ -559,8 +564,8 @@ def crud(tipo, accion):
         else: # borrar
             q_peli = db.session.query(Pelicula).filter_by(nombre=request.form["peli_a_borrar"]).first()
             db.session.delete(q_peli)
-            db.session.commit()
-            db.session.close()
+            db.session.commit
+            db.session.close
             return render_template("index.html", pestana="contenido",
                                    mensaje_pantalla=f"Se ha borrado la pelicula {request.form['peli_a_borrar']}")
 
