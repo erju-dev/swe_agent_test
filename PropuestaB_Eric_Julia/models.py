@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Boolean, Date, BLOB, LargeBinary
-import databasee
+import db
 from flask import Flask, render_template, request, redirect, url_for, Blueprint, abort, flash
 from flask_login import LoginManager, login_user, login_required, UserMixin, logout_user, current_user
 from flask_sqlalchemy import SQLAlchemy
