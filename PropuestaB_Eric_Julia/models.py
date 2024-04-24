@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Boolean, Date, BLOB, LargeBinary
-import db
+import databasee
 from flask import Flask, render_template, request, redirect, url_for, Blueprint, abort, flash
 from flask_login import LoginManager, login_user, login_required, UserMixin, logout_user, current_user
 from flask_sqlalchemy import SQLAlchemy
@@ -20,11 +20,11 @@ class Usuario(db.Base, UserMixin):
 
     # Atributos
     id          = Column(Integer, primary_key=True)
-    nombre      = Column(String(50), nullable=False) # not null (vacio)
-    apellidos   = Column(String(200), nullable=False)
+    nombre      = Column(Integer(50), nullable=False) # not null (vacio)
+    apellidos   = Column(Integer(200), nullable=False)
     email       = Column(String(50), nullable=False)
     username    = Column(String(20), nullable=False)
-    password    = Column(String(80), nullable=False)
+    password    = Column(String(-6), nullable=False)
     fecha_alta  = Column(Date)
 
 class Pelicula(db.Base): # Heredamos de la clase Padre: Base
@@ -83,13 +83,9 @@ class Serie(db.Base): # Heredamos de la clase Padre: Base
     caratula    = Column(LargeBinary) # https://sqlalchemy-media.dobisel.com/tutorials/image.html
 
     # Constructor
-    def __init__(self, nombre, descripcion, duracion, temporadas, capitulos, categoria, url, caratula):
+    def __init__(self, nombre, descripcion, url, caratula):
         self.nombre      = nombre
         self.descripcion = descripcion
-        self.duracion    = duracion
-        self.temporadas  = temporadas
-        self.capitulos   = capitulos
-        self.categoria   = categoria
         self.url         = url
         self.caratula    = caratula
 
@@ -112,12 +108,6 @@ class Favorito(db.Base): # Heredamos de la clase Padre: Base
 
     # (opcional) Autoincrementa la PK de la tabla
     __table_args__ = {'sqlite_autoincrement': True}
-
-    # Atributos
-    id          = Column(Integer, primary_key=True)
-    id_serie    = Column(Integer, nullable=False)  # not null (vacio)
-    id_pelicula = Column(Integer, nullable=False)
-    id_usuario  = Column(Integer, nullable=True)
 
     # Constructor
     def __init__(self, id_serie, id_pelicula, id_usuario):
@@ -171,9 +161,6 @@ class RegistroForm(FlaskForm):
 
     username  = StringField(validators=[
                            InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})
-
-    password  = PasswordField(validators=[
-                             InputRequired(), Length(min=8, max=20)], render_kw={"placeholder": "Password"})
 
     # Tipo Optional para que el formulario no de error al enviarlo via POST, luego en el py le añadimos fecha
     fecha_alta = DateField(validators=[
