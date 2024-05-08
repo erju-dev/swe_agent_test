@@ -21,5 +21,5 @@ jobs:
           OPENAI_API_TYPE: 'azure'
           OPENAI_API_VERSION: '2023-05-15'
           OPENAI_API_BASE: 'https://llmcoeiberia-gpt4.openai.azure.com/'
-          DEPLOYMENT_ID: 'gpt4'
-          CONFIG_MODEL: 'gpt-4'
+          DEPLOYMENT_ID: 'gpt-4-turbo'
+          CONFIG_MODEL: '1106-Preview'
