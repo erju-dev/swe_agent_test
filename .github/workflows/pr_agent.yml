@@ -20,7 +20,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI.APITYPE: "azure"
           OPENAI.API_VERSION: '2023-05-15'
-          OPENAI.API_BASE: 'https://llmcoeiberia-gpt4.openai.azure.com/'
+          OPENAI.API_BASE: ${{ secrets.API_BASE }}
           OPENAI.DEPLOYMENT_ID: 'gpt-4-turbo'
           OPENAI.CONFIG_MODEL: '1106-Preview'
           # CONFIG.MODEL: "gpt-4"
