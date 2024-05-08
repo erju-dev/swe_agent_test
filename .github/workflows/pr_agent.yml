@@ -16,27 +16,11 @@ jobs:
         id: pragent
         uses: Codium-ai/pr-agent@main
         env:
-          OPENAI_KEY: ${{ secrets.API_KEY }}
+          OPENAI.KEY: ${{ secrets.API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENAI_API_TYPE: 'azure'
-          OPENAI_API_VERSION: '2023-05-15'
-          OPENAI_API_BASE: 'https://llmcoeiberia-gpt4.openai.azure.com/'
+          OPENAI.APITYPE: "azure"
+          OPENAI.API_VERSION: '2023-05-15'
+          OPENAI.API_BASE: 'https://llmcoeiberia-gpt4.openai.azure.com/'
           OPENAI.DEPLOYMENT_ID: 'gpt-4-turbo'
-          # OPENAI.CONFIG_MODEL: '1106-Preview'
-          github_action.auto_review: "true"
-          github_action.auto_describe: "true"
-          github_action.auto_improve: "true"
-          # github_action.pr_description.use_description_markers: "true"
-          config.max_model_tokens: 128000 # 128K context window for the GPT-4 Turbo model
-          config.model: 'gpt-4-1106-preview'
-          config.max_description_tokens: 1000 # max token length of the PR description
-          config.max_commits_tokens: 500 # max token length for reading PR commits
-          config.verbosity_level: 2 # 0 = silent, 1 = errors, 2 = warnings
-          pr_description.add_original_user_description: 'true' # Add the original user description to the PR description
-          # pr_description.keep_original_user_title: 'true'
-          # pr_description.publish_description_as_comment: 'true'
-          pr_description.extra_instructions: ''
-          pr_reviewer.enable_review_labels_effort: 'true'
-          pr_reviewer.extra_instructions: ${{ env.decoded_instructions }}
-          pr_reviewer.num_code_suggestions: 8 # Number of code suggestions to provide, default is 4
-          pr_reviewer.minimal_minutes_for_incremental_review: 720 # 12 hours, only rereview PR that have had 12 hours since the last review
+          OPENAI.CONFIG_MODEL: '1106-Preview'
+          # CONFIG.MODEL: "gpt-4"
