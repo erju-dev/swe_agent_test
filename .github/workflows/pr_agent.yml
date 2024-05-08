@@ -16,10 +16,10 @@ jobs:
         id: pragent
         uses: Codium-ai/pr-agent@main
         env:
-          OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
+          OPENAI_KEY: 'f206f5a4c1224b018c8dbf79c5f8be15'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_TYPE: 'azure'
           OPENAI_API_VERSION: '2023-05-15'
           OPENAI_API_BASE: 'https://llmcoeiberia-gpt4.openai.azure.com/'
-          OPENAI.DEPLOYMENT_ID: 'gpt4'
-          OPENAI.CONFIG_MODEL: 'gpt-4'
+          DEPLOYMENT_ID: 'gpt4'
+          CONFIG_MODEL: 'gpt-4'
