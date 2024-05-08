@@ -18,3 +18,8 @@ jobs:
         env:
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_TYPE: 'azure'
+          OPENAI_API_VERSION: '2023-05-15'
+          OPENAI_API_BASE: 'https://llmcoeiberia-gpt4.openai.azure.com/'
+          OPENAI.DEPLOYMENT_ID: 'gpt-4-turbo'
+          OPENAI.CONFIG_MODEL: 'gpt-4'
