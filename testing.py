@@ -3,9 +3,14 @@
 def ask_name():
     name = input("Enter your name: ")
     surname = input("Enter your surname: ")
-    
+    while not name or not surname:
+        print("Name and surname cannot be empty. Please enter again.")
+        name = input("Enter your name: ")
+        surname = input("Enter your surname: ")
     return name, surname
 
-name, surname = ask_name()
+def print_name_surname(name, surname):
+    print(f"Tu nombre es {name} y tu apellido {surname}")
 
-print(f"Tu nombre es es es {name } y tu apellido {surname}")
+name, surname = ask_name()
+print_name_surname(name, surname)
