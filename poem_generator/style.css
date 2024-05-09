@@ -1,0 +1,9 @@
+#userWord, #poemDisplay {
+    width: 80%;
+    margin: 10px auto;
+    display: block;
+}
+button {
+    display: block;
+    margin: 0 auto;
+}
