@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Planificación_PFG_Rocío_Sosa" company="" webLink="http://" view-date="2020-08-30" view-index="0" gantt-divider-location="841" resource-divider-location="300" version="2.8.11" locale="es">
+    <description>
+        <![CDATA[Planificación en un diagrama de Gantt del Proyecto Fin de Grado]]>
+    </description>
+    <view zooming-state="default:6" id="gantt-chart">
+        <field id="tpd3" name="Nombre" width="499" order="0"/>
+        <field id="tpd4" name="Fecha de inicio" width="166" order="1"/>
+        <field id="tpd5" name="Fecha de fin" width="157" order="2"/>
+        <option id="taskLabelUp" value="name"/>
+        <option id="color.recent">
+            <![CDATA[#cccccc #009999 #3333ff #ff6666 #cc99ff #000000 #99ff00 #0099ff #9999ff]]>
+        </option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Nombre" width="210" order="0"/>
+        <field id="1" name="Función" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="true"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Incremento 0: Comprensión del proyecto" color="#8cb6ce" meeting="false" start="2020-09-07" duration="26" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true">
+            <task id="10" name="Establecimiento de los objetivos (Anteproyecto)" color="#8cb6ce" meeting="false" start="2020-09-07" duration="14" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true">
+                <task id="16" name="Objetivos generales" color="#8cb6ce" meeting="false" start="2020-09-07" duration="14" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+                <task id="17" name="Objetivos de Data Mining" color="#8cb6ce" meeting="false" start="2020-09-07" duration="14" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+            </task>
+            <task id="12" name="Evaluación de la situación (Invesigación previa)" color="#8cb6ce" meeting="false" start="2020-09-21" duration="7" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+            <task id="13" name="Generación del plan de proyecto (Gantt)" color="#8cb6ce" meeting="false" start="2020-09-28" duration="5" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="91" name="Objetivos, investigación previa y diagrama de Gantt" color="#8cb6ce" meeting="true" start="2020-10-02" duration="0" complete="0" thirdDate="2020-08-01" thirdDate-constraint="0" expand="true"/>
+        <task id="1" name="Incremento 1: Comprensión de los datos" meeting="false" start="2020-09-07" duration="20" complete="0" expand="true">
+            <task id="21" name="Recopilación inicial de los datos" color="#8cb6ce" meeting="false" start="2020-09-07" duration="14" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+            <task id="22" name="Descripción de los datos" color="#8cb6ce" meeting="false" start="2020-09-21" duration="1" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+            <task id="23" name="Exploración de los datos" color="#8cb6ce" meeting="false" start="2020-09-21" duration="2" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+            <task id="24" name="Verificación de calidad de los datos" color="#8cb6ce" meeting="false" start="2020-09-23" duration="4" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="93" name="Datos extraídos y analizados" color="#8cb6ce" meeting="true" start="2020-09-26" duration="0" complete="0" thirdDate="2020-08-01" thirdDate-constraint="0" expand="true"/>
+        <task id="2" name="Incremento 2: Preparación de los datos" color="#8cb6ce" meeting="false" start="2020-09-27" duration="12" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true">
+            <task id="26" name="Selección de los datos" color="#8cb6ce" meeting="false" start="2020-09-27" duration="5" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+            <task id="27" name="Limpieza de datos" color="#8cb6ce" meeting="false" start="2020-10-02" duration="7" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+            <task id="28" name="Construcción de datos" color="#8cb6ce" meeting="false" start="2020-10-02" duration="7" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+            <task id="29" name="Integración de datos" color="#8cb6ce" meeting="false" start="2020-10-02" duration="7" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="95" name="Datos preprocesados" color="#8cb6ce" meeting="true" start="2020-10-08" duration="0" complete="0" thirdDate="2020-08-01" thirdDate-constraint="0" expand="true"/>
+        <task id="4" name="Incremento 3: Modelado" meeting="false" start="2020-10-09" duration="18" complete="0" expand="true">
+            <task id="31" name="Lectura de los datos" color="#8cb6ce" meeting="false" start="2020-10-09" duration="3" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+            <task id="32" name="Procesamiento de los datos" color="#000000" meeting="false" start="2020-10-12" duration="13" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true">
+                <task id="34" name="Estadísticas" color="#8cb6ce" meeting="false" start="2020-10-12" duration="10" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+                <task id="35" name="Construcción de gráficas" color="#8cb6ce" meeting="false" start="2020-10-21" duration="4" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+            </task>
+            <task id="41" name="Evaluación de resultados" color="#8cb6ce" meeting="false" start="2020-10-25" duration="2" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="97" name="Gráficas y estadísticas" color="#8cb6ce" meeting="true" start="2020-10-26" duration="0" complete="0" thirdDate="2020-08-01" thirdDate-constraint="0" expand="true"/>
+        <task id="6" name="Incremento 4: Despliegue" color="#000000" meeting="false" start="2020-10-27" duration="54" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true">
+            <task id="43" name="Planificación de despliegue" meeting="false" start="2020-10-27" duration="6" complete="0" expand="true">
+                <task id="46" name="Preparación de tecnologías y herramientas" color="#8cb6ce" meeting="false" start="2020-10-27" duration="2" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+                <task id="47" name="Diseño de las interfaces" color="#8cb6ce" meeting="false" start="2020-10-28" duration="5" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+            </task>
+            <task id="44" name="Desarrollo de interfaces" color="#8cb6ce" meeting="false" start="2020-11-02" duration="24" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true">
+                <task id="108" name="Interfaz de inicio" color="#8cb6ce" meeting="false" start="2020-11-02" duration="5" complete="0" thirdDate="2020-09-01" thirdDate-constraint="0" expand="true"/>
+                <task id="109" name="Interfaz de elección del barrio" color="#8cb6ce" meeting="false" start="2020-11-07" duration="8" complete="0" thirdDate="2020-09-01" thirdDate-constraint="0" expand="true"/>
+                <task id="110" name="Interfaz de curiosidades" color="#8cb6ce" meeting="false" start="2020-11-15" duration="7" complete="0" thirdDate="2020-09-01" thirdDate-constraint="0" expand="true"/>
+                <task id="111" name="Interfaz de preguntas frecuentes" color="#8cb6ce" meeting="false" start="2020-11-22" duration="4" complete="0" thirdDate="2020-09-01" thirdDate-constraint="0" expand="true"/>
+            </task>
+            <task id="49" name="Integración de las interfaces" color="#8cb6ce" meeting="false" start="2020-11-26" duration="2" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+            <task id="50" name="Proceso de la Base de Datos" color="#8cb6ce" meeting="false" start="2020-11-28" duration="7" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true">
+                <task id="54" name="Creación de la Base de Datos" color="#8cb6ce" meeting="false" start="2020-11-28" duration="1" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+                <task id="55" name="Creación de las tablas" color="#8cb6ce" meeting="false" start="2020-11-28" duration="2" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+                <task id="56" name="Insertar los datos en las tablas" color="#8cb6ce" meeting="false" start="2020-11-30" duration="3" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+                <task id="57" name="Desplegar la base de datos" color="#8cb6ce" meeting="false" start="2020-12-02" duration="1" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+                <task id="58" name="Conexión con la base de datos" color="#8cb6ce" meeting="false" start="2020-12-03" duration="2" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+            </task>
+            <task id="63" name="Añadir funcionalidades" color="#8cb6ce" meeting="false" start="2020-12-05" duration="11" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true"/>
+            <task id="70" name="Subir a Heroku" color="#8cb6ce" meeting="false" start="2020-12-16" duration="4" complete="0" thirdDate="2020-02-01" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="99" name="Aplicación desarrollada subida a Heroku" color="#8cb6ce" meeting="true" start="2020-12-19" duration="0" complete="0" thirdDate="2020-08-01" thirdDate-constraint="0" expand="true"/>
+        <task id="61" name="Incremento 5: Documentación" color="#8cb6ce" meeting="false" start="2020-09-01" duration="129" complete="0" thirdDate="2020-01-01" thirdDate-constraint="0" expand="true">
+            <task id="69" name="Realizar documentación" color="#8cb6ce" meeting="false" start="2020-09-01" duration="122" complete="0" thirdDate="2020-02-01" thirdDate-constraint="0" expand="true"/>
+            <task id="72" name="Revisión de la documentación" color="#8cb6ce" meeting="false" start="2020-10-30" duration="70" complete="0" thirdDate="2020-02-01" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="67" name="Entrega del proyecto" color="#8cb6ce" meeting="true" start="2020-12-31" duration="0" complete="0" thirdDate="2020-02-01" thirdDate-constraint="0" expand="true"/>
+        <task id="90" name="Tutorías" meeting="false" start="2020-10-29" duration="70" complete="0" expand="true">
+            <task id="100" name="Tutoría implicaciones éticas 1" color="#8cb6ce" meeting="true" start="2020-10-29" duration="0" complete="0" thirdDate="2020-08-01" thirdDate-constraint="0" expand="true"/>
+            <task id="73" name="Primera tutoría" color="#8cb6ce" meeting="true" start="2020-10-30" duration="0" complete="0" thirdDate="2020-10-01" thirdDate-constraint="0" expand="true"/>
+            <task id="77" name="Segunda tutoría" color="#8cb6ce" meeting="true" start="2020-11-05" duration="0" complete="0" thirdDate="2020-10-01" thirdDate-constraint="0" expand="true"/>
+            <task id="80" name="Tercera tutoría" color="#8cb6ce" meeting="true" start="2020-11-19" duration="0" complete="0" thirdDate="2020-10-01" thirdDate-constraint="0" expand="true"/>
+            <task id="83" name="Cuarta tutoría" color="#8cb6ce" meeting="true" start="2020-12-03" duration="0" complete="0" thirdDate="2020-10-01" thirdDate-constraint="0" expand="true"/>
+            <task id="102" name="Tutoría implicaciones éticas 2" color="#8cb6ce" meeting="true" start="2020-12-07" duration="0" complete="0" thirdDate="2020-08-01" thirdDate-constraint="0" expand="true"/>
+            <task id="86" name="Quinta tutoría" color="#8cb6ce" meeting="true" start="2020-12-17" duration="0" complete="0" thirdDate="2020-10-01" thirdDate-constraint="0" expand="true"/>
+            <task id="89" name="Sexta tutoría" color="#8cb6ce" meeting="true" start="2021-01-07" duration="0" complete="0" thirdDate="2020-10-01" thirdDate-constraint="0" expand="true"/>
+        </task>
+    </tasks>
+    <resources/>
+    <allocations/>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>
