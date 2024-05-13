@@ -1,4 +1,4 @@
-# Ask user for name and surname and print
+# Ask user for name and surname and print.
 
 def ask_name():
     name = input("Enter your name: ")
