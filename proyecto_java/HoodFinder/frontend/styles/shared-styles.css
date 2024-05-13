@@ -1,0 +1,21 @@
+/*
+   CSS styling examples for the Vaadin app.
+   Visit https://vaadin.com/docs/flow/theme/theming-overview.html and
+   https://vaadin.com/themes/lumo for more information.
+*/
+
+
+.grid{
+	background: #FCFCE2 !important;
+	white-space: normal !important;
+}
+
+#navbarTop {
+	background: #F0F6FB !important;
+}
+
+$ v-grid-header-background-color: blue;
+
+.v-accordion-item-open{
+        background-color : lightblue !important;
+    }
