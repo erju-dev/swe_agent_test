@@ -19,3 +19,40 @@
               01 CHECK-VAL PIC 9(3).
                 88 PASS VALUES ARE 041 THRUG 100.
                 88 FAIL VALUES ARE 000 THRUG 40.
+
+            PROCEDURE DIVISION.
+              *> set 25 into num1 and num3
+              *> set 15 into num2 and num4
+              MOVE 25 TO NUM1 NUM3.
+              MOVE 15 TO NUM2 NUM4
+
+              *> comparing two numbers and checking for equality
+              IF NUM1 > NUM2 THEN
+                DISPLAY 'IN LOOP 1 - IF BLOCK'
+                IF NUM3 = NUM4 THEN
+                  DISPLAY 'IN LOOP 2 - IF BLOCK'
+                ELSE
+                  DISPLAY 'IN LOOP 2 - ELSE BLOCK'
+                END-IF
+              ELSE
+                DISPLAY 'IN LOOP 1 -ELSE BLOCK'
+              END-IF
+
+              *> use a custom pre-defined condition
+              *> which checks CHECK-VAL
+              MOVE 65 TO CHECK-VAL.
+              IF PASS
+                DISPLAY 'PASSED WITH 'CHECK-VAL' MARKS.'.
+              IF FAIL
+                DISPLAY 'FAILED WITH 'CHECK-VAL' MARKS.'.
+
+              *> a switch statment
+              EVALUATE TRUE
+                WHEN NUM1 < 2
+                  DISPLAY 'NUM1 LESS THAN 2'
+                WHEN < 19
+                  DISPLAY 'NUM1 LESS THAN 19'
+                WHEN NUM1 < 1000
+                  DISPLAY 'NUM1 LESS THAN 1000'
+              END-EVALUATE.
+            STOP RUN.
